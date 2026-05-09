@@ -57,12 +57,12 @@ jobs:
           mkdir -p "$plugin_dir/scripts"
           cp metadata.json "$plugin_dir/metadata.json"
           python3 - <<'PY' "$plugin_dir/metadata.json"
-import json, pathlib, sys
-path = pathlib.Path(sys.argv[1])
-data = json.loads(path.read_text())
-data["name"] = "template-wrapper"
-path.write_text(json.dumps(data, indent=2) + "\n")
-PY
+          import json, pathlib, sys
+          path = pathlib.Path(sys.argv[1])
+          data = json.loads(path.read_text())
+          data["name"] = "template-wrapper"
+          path.write_text(json.dumps(data, indent=2) + "\n")
+          PY
           cp reqpack.lua "$plugin_dir/reqpack.lua"
           cp run.lua "$plugin_dir/run.lua"
           cp scripts/install.lua "$plugin_dir/scripts/install.lua"
@@ -107,12 +107,12 @@ PY
           mkdir -p "$plugin_dir/scripts"
           cp metadata.json "$plugin_dir/metadata.json"
           python3 - <<'PY' "$plugin_dir/metadata.json"
-import json, pathlib, sys
-path = pathlib.Path(sys.argv[1])
-data = json.loads(path.read_text())
-data["name"] = "template-wrapper"
-path.write_text(json.dumps(data, indent=2) + "\n")
-PY
+          import json, pathlib, sys
+          path = pathlib.Path(sys.argv[1])
+          data = json.loads(path.read_text())
+          data["name"] = "template-wrapper"
+          path.write_text(json.dumps(data, indent=2) + "\n")
+          PY
           cp reqpack.lua "$plugin_dir/reqpack.lua"
           cp run.lua "$plugin_dir/run.lua"
           cp scripts/install.lua "$plugin_dir/scripts/install.lua"
