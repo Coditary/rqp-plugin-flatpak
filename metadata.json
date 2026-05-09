@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
-  "name": "template",
+  "name": "flatpak",
   "version": "0.1.0",
-  "summary": "Template wrapper plugin",
-  "description": "ReqPack wrapper template bundle",
+  "summary": "ReqPack wrapper plugin for Flatpak",
+  "description": "Thin ReqPack wrapper bundle for managing Flatpak apps and runtimes",
   "license": "MIT"
 }

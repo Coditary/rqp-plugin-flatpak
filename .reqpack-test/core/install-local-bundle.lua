@@ -1,11 +1,9 @@
 return {
-  name = "flatpak install remote ref",
+  name = "flatpak install local bundle",
   request = {
     action = "install",
     system = "flatpak",
-    packages = {
-      { action = "install", name = "org.mozilla.firefox", version = "124.0" }
-    },
+    localPath = "/tmp/firefox.flatpak",
   },
   fakeExec = {
     {
@@ -16,14 +14,7 @@ return {
       success = true,
     },
     {
-      match = "flatpak list --user --columns=application,ref",
-      exitCode = 0,
-      stdout = "",
-      stderr = "",
-      success = true,
-    },
-    {
-      match = "flatpak install --user --noninteractive --assumeyes --or-update 'org.mozilla.firefox'",
+      match = "flatpak install --user --noninteractive --assumeyes --bundle '/tmp/firefox.flatpak'",
       exitCode = 0,
       stdout = "installed\n",
       stderr = "",
@@ -32,10 +23,11 @@ return {
   },
   expect = {
     success = true,
-    commands = { "flatpak install --user --noninteractive --assumeyes --or-update 'org.mozilla.firefox'" },
+    commands = { "flatpak install --user --noninteractive --assumeyes --bundle '/tmp/firefox.flatpak'" },
     stdout = { "installed\n" },
     events = { "installed", "success" },
     eventPayloads = {
+      installed = "{localTarget=true, path=/tmp/firefox.flatpak}",
       success = "ok",
     },
   }
